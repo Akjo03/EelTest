@@ -1,0 +1,233 @@
+@font-face {
+    font-family: "Righteous";
+    src: url(fonts/Righteous-Regular.ttf);
+}
+
+html {
+	touch-action: none;
+}
+
+body {
+	background-color: #08080D;
+	margin: 0;
+	font-family: Roboto, sans-serif;
+	font-size:1.2em;
+}
+
+.menu {
+	display: none;
+	position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    padding-bottom: 1000px;
+    width: 100%;
+    z-index: 100;
+    text-align: center;
+    background: #111;
+    overflow-y: auto;
+}
+
+.menu.visible {
+	display: block;
+}
+
+.unselectable {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.menu > .title {
+	margin-bottom: 15px;
+}
+
+.menu > .title > h1 {
+    display: inline-block;
+    font-family: "Righteous";
+    font-size: 140px;
+    font-weight: 400;
+    color: #ddd;
+    margin: 40px 0;
+
+    position: relative;
+    top: 0;
+    transition: top .5s;
+}
+
+.menu > .title > .version {
+    display: inline-block;
+    font-family: Arial;
+    font-size: 18px;
+    color: #ddd;
+    padding: 0 0 0 10;
+    display: inline-block;
+    padding-left: 10px;
+}
+
+.menu > #menu_buttons {
+	display: block;
+}
+
+.menu > #menu_buttons > .menu_button {
+	display: block;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > button {
+	display: block;
+	padding: 0;
+	background: transparent;
+	border-style: none;
+	color: #ddd;
+	outline: none;
+	cursor: pointer;
+	font-size: 32px;
+	transition: 0.3s;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > button:hover {
+	padding: 0px 10px 0px 10px;
+	color: #fff;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border {
+	display: inline-block;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	padding: 10px 0px 10px 0px;
+	margin-bottom: 10px;
+	border-color: #161616;
+	transition: 0.3s;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border:hover {
+	border-color: #191919;
+	padding: 10px 10px 10px 10px;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border.anim#section_create {
+	padding: 10px 25% 10px 25%;
+	transition: 0.5s;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border.anim#section_create:hover {
+	padding: 10px 25% 10px 25%;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border.anim#section_quit {
+	padding: 10px 25% 10px 25%;
+	transition: 0.5s;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border.anim#section_quit:hover {
+	padding: 10px 25% 10px 25%;
+}
+
+.menu > #menu_buttons .menu_button > .menu_button_border > .sub_menu {
+	display: none;
+	-webkit-animation: fadein 0.5s;
+	-moz-animation: fadein 0.5s;
+	-o-animation: fadein 0.5s;
+	animation: fadein 0.5s;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > .sub_menu.visible {
+	display: block;
+}
+
+.menu > #menu_buttons .menu_button > .menu_button_border > .sub_menu > p {
+	color: #ddd;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > .sub_menu > .sub_form > label > .sub_input_span {
+	display: block;
+	margin: 0 auto;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > .sub_menu > .sub_form > label > .sub_input_span > input {
+	display: inline-block;
+	padding: 5px;
+	padding-left: 5px;
+	margin-top: 10px;
+	color: #ddd;
+	font-size: 18px;
+	background-color: transparent;
+	border: 2px solid #161616;
+	border-radius: 5px;
+	outline: none;
+	transition: 0.3s;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > .sub_menu > .sub_form > label > .sub_input_span > input::placeholder {
+	color: #333;
+	transition: 0.3s;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > .sub_menu > .sub_form > label > .sub_input_span > input::-webkit-input-placeholder {
+	-webkit-transition: opacity 0.1s linear; 
+	color: #333;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > .sub_menu > .sub_form > label > .sub_input_span > input:focus::-webkit-input-placeholder {
+	opacity: 0;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > .sub_menu > .sub_form > label > .sub_input_span > input:focus {
+	border-color: #1b1b1b;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > .sub_menu > .sub_form > label {
+	padding: 20px 0px 5px 0px;
+	display: block;
+	color: #ddd;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > .sub_menu > .sub_form > label > .sub_input_span > #new_board_name_error {
+	display: inline;
+	position: absolute;
+	padding-left: 10px;
+	vertical-align: middle;
+	text-align: center;
+	font-size: 16px;
+	line-height: 23px;
+	color: #dd0011;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > .sub_menu > .sub_form > .sub_button {
+	margin: 0 auto;
+	display: block;
+	min-width: 200px;
+	padding: 5px;
+	margin-top: 10px;
+	color: #ddd;
+	font-size: 18px;
+	background-color: transparent;
+	border: 2px solid #161616;
+	border-radius: 5px;
+	outline: none;
+	transition: 0.3s;
+	cursor: pointer;
+}
+
+.menu > #menu_buttons > .menu_button > .menu_button_border > .sub_menu > .sub_form > .sub_button:hover {
+	color: #fff;
+	border-color: #191919;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+    <html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="application-name" content="LogiX">
+        <meta name="theme-color" content="#00000">
+        <meta name="description" content="Main App for testing Eel">
+        <meta name="google" content="notranslate">
+        <meta name="generator" content="Eel">
+        <meta name="referrer" content="no-referrer">
+        <meta name="apple-mobile-web-app-capable" content="no">
+        <title>LogiX</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap" rel="stylesheet"> 
+        <link rel="manifest" href="manifest.json">
+        <link rel="icon" sizes="192x192" href="icon.png">
+        <link rel="apple-touch-icon" href="icon.png">
+        <script type="text/javascript" src="/eel.js"></script>
+        <script type="text/javascript">
+            window.addEventListener (
+                "contextmenu", function(e) {
+                    e.preventDefault();
+                }
+            )
+            window.addEventListener(
+                'keydown',function(e) {
+                    if (e.keyIdentifier === 'U+000A' || e.keyIdentifier === 'Enter' || e.keyCode === 13) {
+                        if (e.target.nodeName === 'INPUT' && e.target.type === 'text') {
+                            e.preventDefault();
+                            return false;
+                        }
+                    }
+                },true
+            );
+
+            document.onkeydown = function(e){
+                if (e.keyCode === 116) {
+                    return false;
+                }
+            };
+
+            async function menu_create() {
+                var section_create = document.getElementById("section_create");
+                if (section_create.classList.contains("anim")) {
+                    section_create.classList.remove("anim");
+                } else {
+                    section_create.classList.add("anim");
+                }
+                var sub_create = document.getElementById("sub_create");
+                if (sub_create.classList.contains("visible")) {
+                    sub_create.classList.remove("visible");
+                } else {
+                    sub_create.classList.add("visible");
+                }
+            }
+
+            async function menu_quit() {
+                var section_quit = document.getElementById("section_quit");
+                if (section_quit.classList.contains("anim")) {
+                    section_quit.classList.remove("anim");
+                } else {
+                    section_quit.classList.add("anim");
+                }
+                var sub_quit = document.getElementById("sub_quit");
+                if (sub_quit.classList.contains("visible")) {
+                    sub_quit.classList.remove("visible");
+                } else {
+                    sub_quit.classList.add("visible");
+                }
+
+            }
+
+            function create_board() {
+                eel.create_board(document.getElementById("new_board_name_input").value);
+            }
+
+            eel.expose(create_error)
+            function create_error(text) {
+                document.getElementById("new_board_name_error").innerHTML = text;
+            }
+
+            function exit() {
+                window.open('','_self','');window.close();
+            }
+        </script>
+    </head>
+    <body>
+        <div class="menu visible" id="main_menu">
+            <div class="title unselectable">
+                <h1 class="">LogiX</h1>
+                <span class="version">Dev Version 0.1</span>
+            </div>
+            <div id="menu_buttons">
+                <div class="menu_button unselectable">
+                    <div class="menu_button_border" id="section_create">
+                        <button onclick="menu_create()" id="button_create">Neues Board erstellen</button>
+                        <div class="sub_menu" id="sub_create">
+                            <form action="#" id="create_form" class="sub_form">
+                                <label class="unselectable" for="new_board_name_input">Name des Boards:
+                                    <span class="sub_input_span">
+                                        <input id="new_board_name_input" type="text" name="new_board_name" placeholder="Name des Boards"><p id="new_board_name_error"></p>
+                                    </span>
+                                </label>
+                                <button type="button" id="create_button" class="sub_button" onclick="create_board()">Erstellen</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu_button unselectable">
+                    <div class="menu_button_border" id="section_quit">
+                        <button onclick="menu_quit()" id="button_quit">Verlassen</button>
+                        <div class="sub_menu" id="sub_quit">
+                            <p>Wirklich verlassen?</p>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
